@@ -1,4 +1,5 @@
 import React from "react";
+import StatisticLine from "./StatisticLine";
 
 const Statistics = ({statData}) => {
 
@@ -18,23 +19,23 @@ const Statistics = ({statData}) => {
         }
     
         return result = result / clicks
-      }
+    }
     
-      const positiveFeedbackPercent = (good, clicks) => {
-        let result = 0;
-        return result = (good / clicks) * 100
-      }
+    const positiveFeedbackPercent = (good, clicks) => {
+    let result = 0;
+    return result = (good / clicks) * 100 + " %"
+    }
 
     if (clicks > 0) {
         return (
             <div>
                 <h2>{title}</h2>
-                <p>good {good}</p>
-                <p>neutral {neutral}</p>
-                <p>bad {bad}</p>
-                <p>all {clicks}</p>
-                <p>average {averageScore(good, bad, clicks)}</p>
-                <p>positive {positiveFeedbackPercent(good, clicks)} %</p>
+                <StatisticLine text="good" value={good}/>
+                <StatisticLine text="neutral" value={neutral}/>
+                <StatisticLine text="bad" value={bad}/>
+                <StatisticLine text="all" value={clicks}/>
+                <StatisticLine text="average" value={averageScore(good, bad, clicks)}/>
+                <StatisticLine text="positive" value={positiveFeedbackPercent(good, clicks)}/>
             </div>
         ) 
     } else {
