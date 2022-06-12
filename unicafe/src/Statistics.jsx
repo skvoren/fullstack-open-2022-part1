@@ -30,12 +30,16 @@ const Statistics = ({statData}) => {
         return (
             <div>
                 <h2>{title}</h2>
-                <StatisticLine text="good" value={good}/>
-                <StatisticLine text="neutral" value={neutral}/>
-                <StatisticLine text="bad" value={bad}/>
-                <StatisticLine text="all" value={clicks}/>
-                <StatisticLine text="average" value={averageScore(good, bad, clicks)}/>
-                <StatisticLine text="positive" value={positiveFeedbackPercent(good, clicks)}/>
+                <table>
+                    <tbody>
+                        <StatisticLine text="good" value={good}/>
+                        <StatisticLine text="neutral" value={neutral}/>
+                        <StatisticLine text="bad" value={bad}/>
+                        <StatisticLine text="all" value={clicks}/>
+                        <StatisticLine text="average" value={averageScore(good, bad, clicks)}/>
+                        <StatisticLine text="positive" value={positiveFeedbackPercent(good, clicks)}/>
+                    </tbody>
+                </table>
             </div>
         ) 
     } else {
